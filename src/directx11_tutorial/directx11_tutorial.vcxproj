@@ -94,10 +94,12 @@
   <ItemGroup>
     <ClInclude Include="framework\input_class.h" />
     <ClInclude Include="framework\system_class.h" />
+    <ClInclude Include="graphic\d3d_class.h" />
     <ClInclude Include="graphic\graphics_class.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="graphic\d3d_class.cpp" />
     <ClCompile Include="graphic\graphics_class.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="framework\input_class.cpp" />

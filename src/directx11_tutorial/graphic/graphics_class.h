@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdint>
 
+#include "d3d_class.h"
+
 // GLOBALS
 const bool FULL_SCREEN = false;
 const bool VSYNC_ENABLED = true;
@@ -19,4 +21,6 @@ class GraphicsClass {
 
  private:
   bool Render();
+
+  D3DClass* d3d_ = nullptr;
 };
