@@ -7,6 +7,9 @@
     <Filter Include="graphic">
       <UniqueIdentifier>{9aaaddb8-f933-48df-b41e-b544eaf6b147}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shader">
+      <UniqueIdentifier>{49f1d041-5515-4acc-a69d-33f43e7ca7c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework\system_class.h">
@@ -38,5 +41,10 @@
     <ClCompile Include="graphic\d3d_class.cpp">
       <Filter>graphic</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shader\color.hlsl">
+      <Filter>shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
