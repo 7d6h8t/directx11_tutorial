@@ -4,11 +4,11 @@
     <Filter Include="framework">
       <UniqueIdentifier>{019a6375-63a0-4acf-9866-dbe5113468f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="graphic">
+      <UniqueIdentifier>{9aaaddb8-f933-48df-b41e-b544eaf6b147}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="framework.h" />
     <ClInclude Include="framework\system_class.h">
       <Filter>framework</Filter>
     </ClInclude>
@@ -16,8 +16,8 @@
     <ClInclude Include="framework\input_class.h">
       <Filter>framework</Filter>
     </ClInclude>
-    <ClInclude Include="framework\graphics_class.h">
-      <Filter>framework</Filter>
+    <ClInclude Include="graphic\graphics_class.h">
+      <Filter>graphic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +29,8 @@
     <ClCompile Include="framework\input_class.cpp">
       <Filter>framework</Filter>
     </ClCompile>
-    <ClCompile Include="framework\graphics_class.cpp">
-      <Filter>framework</Filter>
+    <ClCompile Include="graphic\graphics_class.cpp">
+      <Filter>graphic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 #include <cstdint>
 
 #include "input_class.h"
-#include "graphics_class.h"
+#include "graphic/graphics_class.h"
 
 class SystemClass {
  public:

@@ -92,17 +92,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="framework\graphics_class.h" />
     <ClInclude Include="framework\input_class.h" />
     <ClInclude Include="framework\system_class.h" />
+    <ClInclude Include="graphic\graphics_class.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="graphic\graphics_class.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="framework\graphics_class.cpp" />
     <ClCompile Include="framework\input_class.cpp" />
     <ClCompile Include="framework\system_class.cpp" />
     <ClCompile Include="pch.cpp">
