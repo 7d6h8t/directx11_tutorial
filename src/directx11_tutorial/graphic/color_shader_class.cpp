@@ -7,7 +7,7 @@
 
 bool ColorShaderClass::Initialize(ID3D11Device* device, const HWND hwnd) {
   // 정점 및 픽셀 셰이더를 초기화 합니다
-  return InitializeShader(device, hwnd, L"../shader/vertex.hlsl", L"../shader/pixel.hlsl");
+  return InitializeShader(device, hwnd, L"shader/vertex.hlsl", L"shader/pixel.hlsl");
 }
 
 void ColorShaderClass::Shutdown() { ShutdownShader(); }
