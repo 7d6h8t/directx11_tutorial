@@ -1,11 +1,7 @@
 #include "pch.h"
 #include "graphics_class.h"
 
-GraphicsClass::GraphicsClass() {}
-
-GraphicsClass::GraphicsClass(const GraphicsClass& rhs) {}
-
-GraphicsClass::~GraphicsClass() {}
+#include "d3d_class.h"
 
 bool GraphicsClass::Initialize(const int32_t width, const int32_t height,
                                HWND hwnd) {
