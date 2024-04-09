@@ -30,6 +30,9 @@
     <ClInclude Include="graphic\color_shader_class.h">
       <Filter>graphic</Filter>
     </ClInclude>
+    <ClInclude Include="graphic\model_class.h">
+      <Filter>graphic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -47,6 +50,9 @@
       <Filter>graphic</Filter>
     </ClCompile>
     <ClCompile Include="graphic\color_shader_class.cpp">
+      <Filter>graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\model_class.cpp">
       <Filter>graphic</Filter>
     </ClCompile>
   </ItemGroup>

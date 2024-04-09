@@ -99,12 +99,14 @@
     <ClInclude Include="graphic\color_shader_class.h" />
     <ClInclude Include="graphic\d3d_class.h" />
     <ClInclude Include="graphic\graphics_class.h" />
+    <ClInclude Include="graphic\model_class.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="graphic\color_shader_class.cpp" />
     <ClCompile Include="graphic\d3d_class.cpp" />
     <ClCompile Include="graphic\graphics_class.cpp" />
+    <ClCompile Include="graphic\model_class.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="framework\input_class.cpp" />
     <ClCompile Include="framework\system_class.cpp" />
