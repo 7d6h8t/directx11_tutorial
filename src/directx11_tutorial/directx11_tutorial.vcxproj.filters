@@ -27,6 +27,9 @@
     </ClInclude>
     <ClInclude Include="dx.h" />
     <ClInclude Include="com_throw.h" />
+    <ClInclude Include="graphic\color_shader_class.h">
+      <Filter>graphic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -43,8 +46,19 @@
     <ClCompile Include="graphic\d3d_class.cpp">
       <Filter>graphic</Filter>
     </ClCompile>
+    <ClCompile Include="graphic\color_shader_class.cpp">
+      <Filter>graphic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shader\vertex.hlsl">
+      <Filter>shader</Filter>
+    </FxCompile>
+    <FxCompile Include="shader\pixel.hlsl">
+      <Filter>shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
