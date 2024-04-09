@@ -8,9 +8,8 @@ bool GraphicsClass::Initialize(const int32_t width, const int32_t height,
   d3d_ = new D3DClass{};
   if (d3d_ == nullptr) return false;
 
-  bool result = d3d_->Initialize(width, height, VSYNC_ENABLED, hwnd,
-                                 FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
-  if (result == false) {
+  if (d3d_->Initialize(width, height, VSYNC_ENABLED, hwnd, FULL_SCREEN,
+                       SCREEN_DEPTH, SCREEN_NEAR) == false) {
     ::MessageBox(hwnd, L"Could not initialzie Direct3D", L"Error", MB_OK);
     return false;
   }
@@ -25,7 +24,7 @@ void GraphicsClass::Shutdown() {
   }
 }
 
-bool GraphicsClass::Frame() { return Render() ? true : false; }
+bool GraphicsClass::Frame() { return Render(); }
 
 bool GraphicsClass::Render() {
   d3d_->BeginScene(0.5f, 0.5f, 0.5f, 1.0f);
