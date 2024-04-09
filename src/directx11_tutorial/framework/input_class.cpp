@@ -1,12 +1,6 @@
 #include "pch.h"
 #include "input_class.h"
 
-InputClass::InputClass() {}
-
-InputClass::InputClass(const InputClass& rhs) {}
-
-InputClass::~InputClass() {}
-
 void InputClass::Initialize() {
   for (int32_t i = 0; i < 256; i++) keys_[i] = false;
 }

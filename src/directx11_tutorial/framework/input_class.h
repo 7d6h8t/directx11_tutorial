@@ -3,10 +3,6 @@
 
 class InputClass {
  public:
-  InputClass();
-  InputClass(const InputClass& rhs);
-  ~InputClass();
-
   void Initialize();
 
   void KeyDown(const uint32_t input);
