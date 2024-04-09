@@ -25,6 +25,7 @@
     <ClInclude Include="graphic\d3d_class.h">
       <Filter>graphic</Filter>
     </ClInclude>
+    <ClInclude Include="dx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -41,5 +42,8 @@
     <ClCompile Include="graphic\d3d_class.cpp">
       <Filter>graphic</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
   </ItemGroup>
 </Project>

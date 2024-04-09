@@ -94,15 +94,15 @@ void SystemClass::InitialzieWindows(int32_t& width, int32_t& height) {
 
   ::RegisterClassEx(&wc);
 
-  // ¸ğ´ÏÅÍ È­¸éÀÇ ÇØ»óµµ¸¦ ÀĞ¾î¿É´Ï´Ù.
+  // ëª¨ë‹ˆí„° í™”ë©´ì˜ í•´ìƒë„ë¥¼ ì½ì–´ì˜µë‹ˆë‹¤.
   width = ::GetSystemMetrics(SM_CXSCREEN);
   height = ::GetSystemMetrics(SM_CYSCREEN);
 
   int32_t pos_x = 0, pos_y = 0;
 
   if (FULL_SCREEN) {
-    // Ç®½ºÅ©¸° ¸ğµå·Î ÁöÁ¤Çß´Ù¸é ¸ğ´ÏÅÍ È­¸é ÇØ»óµµ¸¦ µ¥½ºÆ®Åé ÇØ»óµµ·Î
-    // ÁöÁ¤ÇÏ°í »ö»óÀ» 32bit·Î ÁöÁ¤ÇÕ´Ï´Ù.
+    // í’€ìŠ¤í¬ë¦° ëª¨ë“œë¡œ ì§€ì •í–ˆë‹¤ë©´ ëª¨ë‹ˆí„° í™”ë©´ í•´ìƒë„ë¥¼ ë°ìŠ¤íŠ¸í†± í•´ìƒë„ë¡œ
+    // ì§€ì •í•˜ê³  ìƒ‰ìƒì„ 32bitë¡œ ì§€ì •í•©ë‹ˆë‹¤.
     DEVMODE screen_setting{};
     screen_setting.dmSize = sizeof(screen_setting);
     screen_setting.dmPelsWidth = static_cast<unsigned long>(width);
@@ -110,14 +110,14 @@ void SystemClass::InitialzieWindows(int32_t& width, int32_t& height) {
     screen_setting.dmBitsPerPel = 32;
     screen_setting.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
-    // Ç®½ºÅ©¸°À¸·Î µğ½ºÇÃ·¹ÀÌ ¼³Á¤À» º¯°æÇÕ´Ï´Ù.
+    // í’€ìŠ¤í¬ë¦°ìœ¼ë¡œ ë””ìŠ¤í”Œë ˆì´ ì„¤ì •ì„ ë³€ê²½í•©ë‹ˆë‹¤.
     ::ChangeDisplaySettings(&screen_setting, CDS_FULLSCREEN);
   } else {
-    // À©µµ¿ì ¸ğµåÀÇ °æ¿ì 800*600 Å©±â¸¦ ÁöÁ¤ÇÕ´Ï´Ù.
+    // ìœˆë„ìš° ëª¨ë“œì˜ ê²½ìš° 800*600 í¬ê¸°ë¥¼ ì§€ì •í•©ë‹ˆë‹¤.
     width = 800;
     height = 600;
 
-    // À©µµ¿ì Ã¢À» °¡·Î, ¼¼·ÎÀÇ Á¤ °¡¿îµ¥ ¿Àµµ·Ï ÇÕ´Ï´Ù.
+    // ìœˆë„ìš° ì°½ì„ ê°€ë¡œ, ì„¸ë¡œì˜ ì • ê°€ìš´ë° ì˜¤ë„ë¡ í•©ë‹ˆë‹¤.
     pos_x = (::GetSystemMetrics(SM_CXSCREEN) - width) / 2;
     pos_y = (::GetSystemMetrics(SM_CYSCREEN) - height) / 2;
   }
