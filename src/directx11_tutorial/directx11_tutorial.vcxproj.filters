@@ -42,9 +42,4 @@
       <Filter>graphic</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="shader\color.hlsl">
-      <Filter>shader</Filter>
-    </FxCompile>
-  </ItemGroup>
 </Project>

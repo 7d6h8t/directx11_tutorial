@@ -1,16 +1,11 @@
 #pragma once
-#include <Windows.h>
 #include <cstdint>
 
-#include "input_class.h"
-#include "graphic/graphics_class.h"
+class InputClass;
+class GraphicsClass;
 
 class SystemClass {
  public:
-  SystemClass();
-  SystemClass(const SystemClass& rhs);
-  ~SystemClass();
-
   bool Initialize();
   void Shutdown();
   void Run();
@@ -27,8 +22,8 @@ class SystemClass {
   HINSTANCE hinstance_;
   HWND hwnd_;
 
-  InputClass* input_;
-  GraphicsClass* graphics_;
+  InputClass* input_ = nullptr;
+  GraphicsClass* graphics_ = nullptr;
 };
 
 static LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam,

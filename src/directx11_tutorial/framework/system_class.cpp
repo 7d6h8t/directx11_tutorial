@@ -1,19 +1,11 @@
 #include "pch.h"
 #include "system_class.h"
 
-SystemClass::SystemClass() {
-  input_ = 0;
-  graphics_ = 0;
-}
-
-SystemClass::SystemClass(const SystemClass& rhs) {}
-
-SystemClass::~SystemClass() {}
+#include "input_class.h"
+#include "graphic/graphics_class.h"
 
 bool SystemClass::Initialize() {
   int32_t width = 0, height = 0;
-  bool result = false;
-
   InitialzieWindows(width, height);
 
   input_ = new InputClass{};
@@ -24,7 +16,7 @@ bool SystemClass::Initialize() {
   graphics_ = new GraphicsClass{};
   if (graphics_ == nullptr) return false;
 
-  return graphics_->Initialize(width, height, hwnd_) ? true : false;
+  return graphics_->Initialize(width, height, hwnd_);
 }
 
 void SystemClass::Shutdown() {
@@ -44,18 +36,15 @@ void SystemClass::Shutdown() {
 
 void SystemClass::Run() {
   MSG msg{};
-  bool done = false, result = false;
 
-  while (done == false) {
+  while (true) {
     if (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+      if (msg.message == WM_QUIT) break;
+
       ::TranslateMessage(&msg);
       ::DispatchMessage(&msg);
-    }
-
-    if (msg.message == WM_QUIT) {
-      done = true;
     } else {
-      if (Frame() == false) done = true;
+      if (Frame() == false) break;
     }
   }
 
@@ -81,26 +70,23 @@ LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg,
 bool SystemClass::Frame() {
   if (input_->IsKeyDown(VK_ESCAPE)) return false;
 
-  return graphics_->Frame() ? true : false;
+  return graphics_->Frame();
 }
 
 void SystemClass::InitialzieWindows(int32_t& width, int32_t& height) {
-  WNDCLASSEX wc{};
-  DEVMODE screen_setting{};
-  int32_t pos_x = 0, pos_y = 0;
-
   application_handle = this;
-  hinstance_ = GetModuleHandle(nullptr);
+  hinstance_ = ::GetModuleHandle(nullptr);
   app_name_ = L"Engine";
 
+  WNDCLASSEX wc{};
   wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
   wc.lpfnWndProc = WndProc;
   wc.cbClsExtra = 0;
   wc.cbWndExtra = 0;
   wc.hInstance = hinstance_;
-  wc.hIcon = LoadIcon(nullptr, IDI_WINLOGO);
+  wc.hIcon = ::LoadIcon(nullptr, IDI_WINLOGO);
   wc.hIconSm = wc.hIcon;
-  wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
+  wc.hCursor = ::LoadCursor(nullptr, IDC_ARROW);
   wc.hbrBackground = reinterpret_cast<HBRUSH>(GetStockObject(BLACK_BRUSH));
   wc.lpszMenuName = nullptr;
   wc.lpszClassName = app_name_;
@@ -108,23 +94,30 @@ void SystemClass::InitialzieWindows(int32_t& width, int32_t& height) {
 
   ::RegisterClassEx(&wc);
 
+  // 모니터 화면의 해상도를 읽어옵니다.
   width = ::GetSystemMetrics(SM_CXSCREEN);
   height = ::GetSystemMetrics(SM_CYSCREEN);
 
+  int32_t pos_x = 0, pos_y = 0;
+
   if (FULL_SCREEN) {
-    memset(&screen_setting, 0, sizeof(screen_setting));
+    // 풀스크린 모드로 지정했다면 모니터 화면 해상도를 데스트톱 해상도로
+    // 지정하고 색상을 32bit로 지정합니다.
+    DEVMODE screen_setting{};
     screen_setting.dmSize = sizeof(screen_setting);
     screen_setting.dmPelsWidth = static_cast<unsigned long>(width);
     screen_setting.dmPelsHeight = static_cast<unsigned long>(height);
     screen_setting.dmBitsPerPel = 32;
     screen_setting.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
+    // 풀스크린으로 디스플레이 설정을 변경합니다.
     ::ChangeDisplaySettings(&screen_setting, CDS_FULLSCREEN);
-    pos_x = pos_y = 0;
   } else {
+    // 윈도우 모드의 경우 800*600 크기를 지정합니다.
     width = 800;
     height = 600;
 
+    // 윈도우 창을 가로, 세로의 정 가운데 오도록 합니다.
     pos_x = (::GetSystemMetrics(SM_CXSCREEN) - width) / 2;
     pos_y = (::GetSystemMetrics(SM_CYSCREEN) - height) / 2;
   }
@@ -137,13 +130,9 @@ void SystemClass::InitialzieWindows(int32_t& width, int32_t& height) {
   ::ShowWindow(hwnd_, SW_SHOW);
   ::SetForegroundWindow(hwnd_);
   ::SetFocus(hwnd_);
-
-  ::ShowCursor(false);
 }
 
 void SystemClass::ShutdownWindows() {
-  ::ShowCursor(true);
-
   if (FULL_SCREEN)
     ::ChangeDisplaySettings(nullptr, 0);
 
