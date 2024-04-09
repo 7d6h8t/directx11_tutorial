@@ -92,6 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="com_throw.h" />
     <ClInclude Include="dx.h" />
     <ClInclude Include="framework\input_class.h" />
     <ClInclude Include="framework\system_class.h" />

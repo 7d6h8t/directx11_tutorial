@@ -1,8 +1,7 @@
 #pragma once
-
 #include <d3d11.h>
-#include <d3dcompiler.h>
 #include <DirectXMath.h>
+#include <string>
 
 class D3DClass {
  public:
@@ -21,12 +20,12 @@ class D3DClass {
   void GetWorldMatrix(DirectX::XMMATRIX& world_matrix);
   void GetOrthoMatrix(DirectX::XMMATRIX& ortho_matrix);
 
-  void GetVideoCardInfo(char* card_name, int& memory);
+  void GetVideoCardInfo(std::wstring& card_name, int32_t& memory);
 
  private:
   bool vsync_enabled_ = false;
   int32_t video_card_memory_ = 0;
-  char video_card_description_[128];
+  std::wstring video_card_name_{};
   IDXGISwapChain* swap_chain_ = nullptr;
   ID3D11Device* device_ = nullptr;
   ID3D11DeviceContext* device_context_ = nullptr;
@@ -34,7 +33,7 @@ class D3DClass {
   ID3D11Texture2D* depth_stencil_buffer_ = nullptr;
   ID3D11DepthStencilState* depth_stencil_state_ = nullptr;
   ID3D11DepthStencilView* depth_stencil_view_ = nullptr;
-  ID3D11RasterizerState* raster_state_ = nullptr;
+  ID3D11RasterizerState* rasterizer_state_ = nullptr;
   DirectX::XMMATRIX projection_matrix_;
   DirectX::XMMATRIX world_matrix_;
   DirectX::XMMATRIX ortho_matrix_;

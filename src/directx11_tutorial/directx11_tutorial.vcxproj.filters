@@ -26,6 +26,7 @@
       <Filter>graphic</Filter>
     </ClInclude>
     <ClInclude Include="dx.h" />
+    <ClInclude Include="com_throw.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
