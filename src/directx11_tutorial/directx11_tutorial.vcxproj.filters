@@ -33,6 +33,9 @@
     <ClInclude Include="graphic\model_class.h">
       <Filter>graphic</Filter>
     </ClInclude>
+    <ClInclude Include="graphic\camera_class.h">
+      <Filter>graphic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -53,6 +56,9 @@
       <Filter>graphic</Filter>
     </ClCompile>
     <ClCompile Include="graphic\model_class.cpp">
+      <Filter>graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\camera_class.cpp">
       <Filter>graphic</Filter>
     </ClCompile>
   </ItemGroup>

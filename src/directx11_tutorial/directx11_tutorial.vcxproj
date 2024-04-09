@@ -96,6 +96,7 @@
     <ClInclude Include="dx.h" />
     <ClInclude Include="framework\input_class.h" />
     <ClInclude Include="framework\system_class.h" />
+    <ClInclude Include="graphic\camera_class.h" />
     <ClInclude Include="graphic\color_shader_class.h" />
     <ClInclude Include="graphic\d3d_class.h" />
     <ClInclude Include="graphic\graphics_class.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="graphic\camera_class.cpp" />
     <ClCompile Include="graphic\color_shader_class.cpp" />
     <ClCompile Include="graphic\d3d_class.cpp" />
     <ClCompile Include="graphic\graphics_class.cpp" />
